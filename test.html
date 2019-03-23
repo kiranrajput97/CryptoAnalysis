@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="build/botui.min.css">
+  <link rel="stylesheet" href="build/botui-theme-default.css">
+<link rel="stylesheet" type="text/css"  href="static\css\bootstrap.css">
+<link rel="stylesheet" type="text/css" href="static\fonts\font-awesome\css\font-awesome.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<link rel="stylesheet" type="text/css"  href="static\css\style.css">
+<link rel="stylesheet" type="text/css" href="static\css\prettyPhoto.css">
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,600,300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="static\js\modernizr.custom.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Sarala" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Sarala" rel="stylesheet">
+<style>
+    body{
+background: #00C9FF;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #92FE9D, #00C9FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+.we
+    {
+        font-family: 'Sarala',sans-serif;
+        color:black;
+    }
+    #footer
+    {
+        margin-top:48px;
+    }
+.call
+    {
+        margin-top: -160px;
+    }
+</style>
+</head>
+<body>
+    <h1 class="text-center we">BTC BOT</h1>
+  <div class="botui-app-container" id="hello-world">
+    <bot-ui></bot-ui>
+  </div>
+  <script src="https://cdn.jsdelivr.net/vue/2.0.5/vue.min.js"></script>
+  <script src="build/botui.js"></script>
+  <script>
+    var botui = new BotUI('hello-world');
+
+    botui.message.add({
+      loading: true
+    }).then(function (index) {
+      setTimeout(function () {
+        botui.message.update(index, {
+          content: 'Hello I am BTC Bot! I am currently Developing so Stay tuned!',
+          loading: false
+        }).then(function () {
+          botui.message.add({
+            delay: 2000,
+            loading: true,
+            content: 'I will grow soon. My Developers are working on me to develop'
+          });
+        });
+      }, 5000);
+    });
+
+    botui.message.add({
+      human: true,
+      content: 'Hi!'
+    }).then(function () {
+      botui.action.text({
+        action: {
+          button: {
+            icon: 'check',
+            label: 'Submit'
+          }
+        }
+      });
+    });
+  </script>
+    <h1><p class="text-center bg-danger call">Still Under Development</p> </h1>
+ <div id="footer">
+  <div class="container">
+    <div class="fnav">
+      <p> All Rights Reserved &copy; 2018 Made by Amit Singh With &#10084;</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
